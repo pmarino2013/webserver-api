@@ -94,9 +94,12 @@ const deleteUsario = async (req, res) => {
     { new: true }
   );
 
+  // const usuarioAutenticado = req.usuario;
+
   res.status(200).json({
     message: "Usuario eliminado",
     usuarioBorrado,
+    usuarioAutenticado,
   });
 };
 

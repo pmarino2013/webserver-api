@@ -1,6 +1,7 @@
 // const express = require("express");
 import express from "express";
 import router from "../routes/usuarios.js";
+import routerAuth from "../routes/auth.js";
 import cors from "cors";
 import { dbConnection } from "../database/config.js";
 
@@ -9,6 +10,8 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
     this.usuarioPath = "/api/usuarios";
+    this.authPath = "/api/auth"; //ruta autenticación
+
     // this.corsOptions = { origin: "http://example.com" };
     this.ConectarDB();
     this.middlewares();
@@ -21,6 +24,8 @@ class Server {
 
   routes() {
     this.app.use(this.usuarioPath, router);
+    this.app.use(this.authPath, routerAuth); //ruta autenticación
+
     // this.app.get("/api", (req, res) => {
     //   res.send("Método GET ");
     // });

@@ -24,7 +24,7 @@ const existeUsuarioPorId = async (id) => {
   }
   //Si el usuario existe verifico su estado
   if (!existeUsuario.estado) {
-    throw new Error(`El usuario ${existeUsuario.name} está inactivo`);
+    throw new Error(`El usuario ${existeUsuario.nombre} está inactivo`);
   }
 };
 
